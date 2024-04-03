@@ -30,6 +30,7 @@ public class Main {
                     System.out.println("Введите количество шагов:");
                     int stepsAmount = scanner.nextInt();
                     StepTracker.setSteps(monthNo, dayNo, stepsAmount);
+                    StepTracker.printMonthData(StepTracker.getMonthData());
                 }else if (userInput == 5){
                     System.out.println("Вывод статистики");
                 } else {
