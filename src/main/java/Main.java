@@ -31,12 +31,15 @@ public class Main {
                     int stepsAmount = scanner.nextInt();
                     StepTracker.setSteps(monthNo, dayNo, stepsAmount);
                     StepTracker.printMonthData(StepTracker.getMonthData());
+                    System.out.println("Что еще сделать?");
                 }else if (userInput == 5){
-                    System.out.println("Вывод статистики");
+                    System.out.println("Вывод статистики за месяц. Введите номер месяца:");
+                    int statMonthNo = scanner.nextInt();
+                    StepTracker.showMonthStat(statMonthNo, StepTracker.getMonthData());
                 } else {
                     System.out.println("Выберите вариант из меню");
-                    printMenu();
-                    userInput = scanner.nextInt();
+                    //printMenu();
+                   // userInput = scanner.nextInt();
                 }
                  printMenu();
                  userInput = scanner.nextInt();

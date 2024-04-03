@@ -13,7 +13,7 @@ public class StepTracker {
                 data.setDay(day);
                 data.setSteps(steps);
                 // Помещаем объект MonthData в HashMap
-                monthData.put(month, data);
+                monthData.put(month, data);  //РАБОТАЕТ НЕПРАВИЛЬНО!!!!!!!!!!!
             System.out.println("Ваши шаги сохранены!");
             }else {
             System.out.println("Вы ввели некорректные данные! Введите корректные данные.");
@@ -30,6 +30,18 @@ public class StepTracker {
             System.out.println("Месяц: " + key + ". День: " + value.getDay() + ". Шаги: " + value.getSteps());
         }
     }
+
+    public static void showMonthStat (int monthNo, HashMap<Integer, MonthData> monthData) {
+        System.out.println("Вот ваша статистика за месяц: " + monthNo + ".");
+        System.out.println("Количество пройденных шагов по дням:");
+        for (Map.Entry<Integer, MonthData> entry : monthData.entrySet()){
+            if (monthData.containsKey(monthNo)){
+                MonthData value = entry.getValue();
+                System.out.println("День " + value.getDay() + ". Шагов: " + value.getSteps());
+            }
+        }
+    }
+
 
     public static int getTargetNumberOfStepsPerDay() {
         return targetNumberOfStepsPerDay;
