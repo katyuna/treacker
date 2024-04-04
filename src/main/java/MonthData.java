@@ -1,9 +1,14 @@
+import java.util.HashMap;
+
 public class MonthData {
 
-  private int day;
+  static HashMap<Integer,  Integer> daySteps= new HashMap<Integer, Integer>();
+
+
+private int day;
   private int steps;
 
-    public int getDay() {
+  public int getDay() {
     return day;
   }
 

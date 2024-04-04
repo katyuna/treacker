@@ -35,7 +35,8 @@ public class Main {
                 }else if (userInput == 5){
                     System.out.println("Вывод статистики за месяц. Введите номер месяца:");
                     int statMonthNo = scanner.nextInt();
-                    StepTracker.showMonthStat(statMonthNo, StepTracker.getMonthData());
+                    StepTracker.showMonthStat(statMonthNo);
+                    //StepTracker.showMonthStat(statMonthNo, StepTracker.getMonthData());
                 } else {
                     System.out.println("Выберите вариант из меню");
                     //printMenu();
