@@ -1,13 +1,14 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class StepTracker {
 
     private static int targetNumberOfStepsPerDay = 10000;
-       static HashMap<Integer,  HashMap<Integer, Integer>> monthData= new HashMap<Integer, HashMap<Integer,Integer>>();
+       static HashMap<Integer,  HashMap<Integer, Integer>> monthData= new HashMap<>();
        static HashMap<Integer,  Integer> daySteps= new HashMap<>();
 
-    //Заполняем HashMap
+    //Заполняем HashMap начальными значениями - во всех месяцах и днях количество шагов = 0
     public static void fillMonthData(){
         for (int i = 0; i<12; i++) {
             // HashMap<Integer, Integer> daySteps = null;
@@ -18,7 +19,6 @@ public class StepTracker {
             monthData.put(i, daySteps);
         }
     }
-
 
     //Устанавливаем количество шагов
     public static void setSteps(int month, int day, int steps){
@@ -43,13 +43,55 @@ public class StepTracker {
         }
     }
 
-    //Метод для печати HashMap
+    //Метод вывода статистики за заданным месяц
+    public static void showMonthStat (int monthNumber) {
+        //Итерация через все записи в HashMap'ам
+        //Для каждой записи (ключ-значение) в наборе записей monthData сделай
+        for (Map.Entry<Integer, HashMap<Integer, Integer>> entry : monthData.entrySet()) {
+            //Получаем номер месяца
+            Integer month = entry.getKey();
+            int monthStepsAmount = 0;
+            int monthStepsMax = 0;
+            int monthBestSeries = 0;
+            if (monthNumber == month + 1) {
+                System.out.println("Вот ваша статистика за месяц: " + monthNumber + ". ");
+                HashMap<Integer, Integer> dayStepMapStats = entry.getValue();
+                //Количество шагов по дням за заданный месяц
+                for (Map.Entry<Integer, Integer> dayEntryStats : dayStepMapStats.entrySet()) {
+                    int dayNo = dayEntryStats.getKey();
+                    int stepsPerDay = dayEntryStats.getValue();
+                    //Вывод количества шагов по дням за заданный месяц
+                    if (dayNo != 29) {
+                        System.out.print((dayNo + 1) + " день: " + stepsPerDay + ", ");
+                    } else {
+                        System.out.println((dayNo + 1) + " день: " + stepsPerDay + ".");
+                    }
+                    //Общее количество шагов за месяц
+                    monthStepsAmount = monthStepsAmount + stepsPerDay;
+                    //Максимальное пройденное количество шагов в месяце
+                    if (stepsPerDay>monthStepsMax) {
+                        monthStepsMax = stepsPerDay;
+                    }
+                    //Лучшая серия
+                    if (stepsPerDay>targetNumberOfStepsPerDay) {
+                        monthBestSeries = monthBestSeries + 1;
+                    }
+                }
+                System.out.println("Общее количество шагов за месяц: " + monthStepsAmount);
+                System.out.println("Среднее количество шагов в день: " + monthStepsAmount/30);
+                System.out.println("Максимальное количество шагов в день: " + monthStepsMax);
+                System.out.println("Лучшая серия: " + monthBestSeries + " дней выше целевого!");
+            }
+        }
+    }
+
+    //Вспомогательный метод для печати всей HashMap
     public static void printMonthData(HashMap<Integer, HashMap<Integer, Integer>> monthData) {
-        //итерация через все записи в HashMap'ам
+        //Итерация через все записи в HashMap'ам
         //Для каждой записи (ключ-значение) в наборе записей monthData сделай
         for (Map.Entry<Integer, HashMap<Integer, Integer>> entry : monthData.entrySet()) {
             Integer month = entry.getKey();
-            System.out.println("");
+            System.out.println();
             System.out.print("Месяц: " + (month+1) + ". ");
             HashMap<Integer, Integer> dayStepMap = entry.getValue();
             for (Map.Entry<Integer, Integer> dayEntry : dayStepMap.entrySet()) {
@@ -60,25 +102,7 @@ public class StepTracker {
         }
     }
 
-    public static void showMonthStat (int monthNumber) {
-        for (Map.Entry<Integer, HashMap<Integer, Integer>> entry : monthData.entrySet()) {
-            Integer month = entry.getKey();
-            if (monthNumber == month + 1) {
-                System.out.println("Вот ваша статистика за месяц: " + monthNumber + ". ");
-                HashMap<Integer, Integer> dayStepMapStats = entry.getValue();
-                for (Map.Entry<Integer, Integer> dayEntryStats : dayStepMapStats.entrySet()) {
-                    Integer statDay = dayEntryStats.getKey();
-                    Integer statsSteps = dayEntryStats.getValue();
-                    if (statDay != 29) {
-                        System.out.print((statDay + 1) + " день: " + statsSteps + ", ");
-                    } else {
-                        System.out.println((statDay + 1) + " день: " + statsSteps + ".");
-                    }
-                }
-            }
-        }
-    }
-
+    //Геттеры и сеттеры
     public static int getTargetNumberOfStepsPerDay() {
         return targetNumberOfStepsPerDay;
     }
