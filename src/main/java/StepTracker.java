@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -85,8 +84,15 @@ public class StepTracker {
         }
     }
 
+
+
+
+
+
+
+
     //Вспомогательный метод для печати всей HashMap
-    public static void printMonthData(HashMap<Integer, HashMap<Integer, Integer>> monthData) {
+/*   public static void printMonthData(HashMap<Integer, HashMap<Integer, Integer>> monthData) {
         //Итерация через все записи в HashMap'ам
         //Для каждой записи (ключ-значение) в наборе записей monthData сделай
         for (Map.Entry<Integer, HashMap<Integer, Integer>> entry : monthData.entrySet()) {
@@ -101,7 +107,7 @@ public class StepTracker {
             }
         }
     }
-
+*/
     //Геттеры и сеттеры
     public static int getTargetNumberOfStepsPerDay() {
         return targetNumberOfStepsPerDay;
