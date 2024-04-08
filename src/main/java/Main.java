@@ -5,8 +5,10 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         printMenu();
+        StepTracker.fillMonthData();
+        //StepTracker.printMonthData(StepTracker.getMonthData());
         int userInput = scanner.nextInt();
-            while (userInput !=0){
+                while (userInput !=0){
                 if (userInput == 1){
                     System.out.println("Текущие настройки:");
                     System.out.println("Ваша цель: "+StepTracker.getTargetNumberOfStepsPerDay()+" шагов в день.");
@@ -27,7 +29,7 @@ public class Main {
                     System.out.println("Введите количество шагов:");
                     int stepsAmount = scanner.nextInt();
                     StepTracker.setSteps(monthNo, dayNo, stepsAmount);
-                    StepTracker.printMonthData(StepTracker.getMonthData());
+                    //StepTracker.printMonthData(StepTracker.getMonthData());
                 }else if (userInput == 5){
                     System.out.println("Вывод статистики за месяц. Введите номер месяца:");
                     int statMonthNo = scanner.nextInt();
