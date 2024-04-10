@@ -19,7 +19,11 @@ public class Main {
                     System.out.println("Ваша текущая цель "+StepTracker.getTargetNumberOfStepsPerDay()+" шагов в день.");
                     System.out.println("Задайте новую цель.");
                     int newTargetNumberOfStepsPerDay = scanner.nextInt();
-                    StepTracker.setTargetNumberOfStepsPerDay(newTargetNumberOfStepsPerDay);
+                    if (newTargetNumberOfStepsPerDay > 0){
+                        StepTracker.setTargetNumberOfStepsPerDay(newTargetNumberOfStepsPerDay);
+                    }else {
+                        System.out.println("Количество шагов не может быть отрицательным!");
+                    }
                 } else if (userInput == 4){
                     System.out.println("Учет шагов.");
                     System.out.println("Введите номер месяца:");

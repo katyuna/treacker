@@ -1,21 +1,16 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Converter {
 
     private static int stepLength = 75;
     private static int caloriesPerStep = 50;
 
-    double distance = 0;
-    //Пройденная дистанция за месяц в километрах
 
+    public static double stepsToKm (int stepsPerMonth){
+        return (((double) stepsPerMonth)*75)/100000;
+    }
 
-
-
-
-
-
-    //Количество сожженных калорий за месяц
+    public static int stepsToCl (int stepsPerMonth){
+        return (stepsPerMonth*50)/1000;
+    }
 
     public static int getStepLength() {
         return stepLength;

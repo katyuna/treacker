@@ -10,9 +10,7 @@ public class StepTracker {
     //Заполняем HashMap начальными значениями - во всех месяцах и днях количество шагов = 0
     public static void fillMonthData(){
         for (int i = 0; i<12; i++) {
-            // HashMap<Integer, Integer> daySteps = null;
             for (int k = 0; k < 30; k++) {
-                //daySteps = new HashMap<>();
                 daySteps.put(k, 0);
             }
             monthData.put(i, daySteps);
@@ -80,16 +78,13 @@ public class StepTracker {
                 System.out.println("Среднее количество шагов в день: " + monthStepsAmount/30);
                 System.out.println("Максимальное количество шагов в день: " + monthStepsMax);
                 System.out.println("Лучшая серия: " + monthBestSeries + " дней выше целевого!");
+                //Пройденная дистанция за месяц в километрах
+                System.out.println("Пройденная дистанция за месяц: " + Converter.stepsToKm(monthStepsAmount) + " км.");
+                //Количество сожженных калорий за месяц
+                System.out.println("Количество сожженных калорий: " + Converter.stepsToCl(monthStepsAmount) + " кКал.");
             }
         }
     }
-
-
-
-
-
-
-
 
     //Вспомогательный метод для печати всей HashMap
 /*   public static void printMonthData(HashMap<Integer, HashMap<Integer, Integer>> monthData) {
@@ -114,11 +109,10 @@ public class StepTracker {
     }
 
     public static void setTargetNumberOfStepsPerDay(int targetNumberOfStepsPerDay) {
-        StepTracker.targetNumberOfStepsPerDay = targetNumberOfStepsPerDay;
+            StepTracker.targetNumberOfStepsPerDay = targetNumberOfStepsPerDay;
     }
 
     public static HashMap<Integer, HashMap<Integer, Integer>> getMonthData() {
         return monthData;
     }
-
 }
