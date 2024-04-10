@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        StepTracker tracker = new StepTracker();
+        StepTrackerFix tracker = new StepTrackerFix();
+        //StepTracker tracker = new StepTracker();
         tracker.fillMonthData();
         Scanner scanner = new Scanner(System.in);
 

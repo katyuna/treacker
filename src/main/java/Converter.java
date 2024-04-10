@@ -5,11 +5,11 @@ public class Converter {
 
 
     public static double stepsToKm (int stepsPerMonth){
-        return (((double) stepsPerMonth)*75)/100000;
+        return (((double) stepsPerMonth)*stepLength)/100000;
     }
 
     public static int stepsToCl (int stepsPerMonth){
-        return (stepsPerMonth*50)/1000;
+        return (stepsPerMonth*caloriesPerStep)/1000;
     }
 
     public static int getStepLength() {
