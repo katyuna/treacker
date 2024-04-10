@@ -7,7 +7,6 @@ public class StepTracker {
     static HashMap<Integer, HashMap<Integer, Integer>> monthData = new HashMap<>();
     static HashMap<Integer, Integer> daySteps = new HashMap<>();
 
-
     //Заполняем HashMap начальными значениями - во всех месяцах и днях количество шагов = 0
     public void fillMonthData() {
         for (int i = 0; i < 12; i++) {
@@ -94,7 +93,7 @@ public class StepTracker {
             }
         }
 
-    public int getTargetNumberOfStepsPerDay() {
+    public static int getTargetNumberOfStepsPerDay() {
         return targetNumberOfStepsPerDay;
     }
 
