@@ -3,9 +3,10 @@ import java.util.ArrayList;
 
 public class StepTrackerFix {
 
-    private int targetNumberOfStepsPerDay = 10000;
+    private static int targetNumberOfStepsPerDay = 10000;
     private ArrayList<ArrayList<Integer>> monthData = new ArrayList<>();
     private ArrayList<Integer> stepsPerDay = new ArrayList<>();
+
 
     //Заполняем массив массивов дефолтными нулями
     public void fillMonthData() {
@@ -45,8 +46,30 @@ public class StepTrackerFix {
                 for (int j = 0; j < 30; j++) {
                     Integer steps = stepsPerDay.get(j);
                     //Количество шагов по дням за заданный месяц
-                    System.out.print(" " + (j+1) + " день: " + steps + "шагов. ");
+                    System.out.print(" " + (j+1) + " день, " + steps + ". ");
+                    //Общее количество шагов за месяц
+                    stepsAmount += steps;
+                    //Максимальное пройденное количество шагов в месяце
+                    if (steps > stepsMax) {
+                        stepsMax = steps;
+                    }
+                    //Лучшая серия
+                    if (steps > targetNumberOfStepsPerDay) {
+                        currentSeries++;
+                        if (currentSeries > maxSeries) {
+                            maxSeries = currentSeries;
+                        }
+                    } else {
+                        // Обнуляем текущую серию только если количество шагов за день не превышает целевое значение
+                        currentSeries = 0;
+                    }
                 }
+                System.out.println();
+                System.out.println("Общее количество шагов за месяц: " + stepsAmount + ". ");
+                System.out.println("Максимальное пройденное количество шагов : " + stepsMax + ". ");
+                System.out.println("Лучшая серия: " + maxSeries + " дней выше целевого!");
+                System.out.println("Пройденная дистанция за месяц: " + Converter.stepsToKm(stepsAmount) + " км.");
+                System.out.println("Количество сожженных калорий: " + Converter.stepsToCl(stepsAmount) + " кКал.");
            }
         }
     }
