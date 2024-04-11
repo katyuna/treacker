@@ -74,7 +74,7 @@ public class StepTrackerFix {
         }
     }
 
-    public int getTargetNumberOfStepsPerDay() {
+    public static int getTargetNumberOfStepsPerDay() {
         return targetNumberOfStepsPerDay;
     }
 

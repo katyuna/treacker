@@ -49,8 +49,12 @@ public class Main {
     }
 
     private static void printGoal() {
-        System.out.println("Ваша текущая цель " + StepTracker.getTargetNumberOfStepsPerDay() + " шагов в день.");
+        System.out.println("Ваша текущая цель " + StepTrackerFix.getTargetNumberOfStepsPerDay() + " шагов в день.");
     }
+
+    //private static void printGoal() {
+    //    System.out.println("Ваша текущая цель " + StepTracker.getTargetNumberOfStepsPerDay() + " шагов в день.");
+    //}
     private static void printMenu() {
         System.out.println("1 - Показать настройки трекера.");
         System.out.println("2 - Показать цель по количеству шагов в месяц.");
