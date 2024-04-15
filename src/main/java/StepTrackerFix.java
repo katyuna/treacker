@@ -42,11 +42,11 @@ public class StepTrackerFix {
         System.out.println("Ваша статистика за месяц " + monthNumber + ".");
         //Количество шагов по дням за заданный месяц
         for (int i = 0; i < 12; i++) {
-            if (i == (monthNumber-1)) {
+            if (i == (monthNumber - 1)) {
                 for (int j = 0; j < 30; j++) {
                     Integer steps = stepsPerDay.get(j);
                     //Количество шагов по дням за заданный месяц
-                    System.out.print(" " + (j+1) + " день, " + steps + ". ");
+                    System.out.print(" " + (j + 1) + " день, " + steps + ". ");
                     //Общее количество шагов за месяц
                     stepsAmount += steps;
                     //Максимальное пройденное количество шагов в месяце
@@ -70,7 +70,7 @@ public class StepTrackerFix {
                 System.out.println("Лучшая серия: " + maxSeries + " дней выше целевого!");
                 System.out.println("Пройденная дистанция за месяц: " + Converter.stepsToKm(stepsAmount) + " км.");
                 System.out.println("Количество сожженных калорий: " + Converter.stepsToCl(stepsAmount) + " кКал.");
-           }
+            }
         }
     }
 

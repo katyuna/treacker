@@ -4,12 +4,12 @@ public class Converter {
     private static int caloriesPerStep = 50;
 
 
-    public static double stepsToKm (int stepsPerMonth){
-        return (((double) stepsPerMonth)*stepLength)/100000;
+    public static double stepsToKm(int stepsPerMonth) {
+        return (((double) stepsPerMonth) * stepLength) / 100000;
     }
 
-    public static int stepsToCl (int stepsPerMonth){
-        return (stepsPerMonth*caloriesPerStep)/1000;
+    public static int stepsToCl(int stepsPerMonth) {
+        return (stepsPerMonth * caloriesPerStep) / 1000;
     }
 
     public static int getStepLength() {
